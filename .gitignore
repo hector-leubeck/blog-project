@@ -5,3 +5,4 @@ posts/__pycache__
 comments/__pycache__
 categories/__pycache__
 .env
+*.pyc
