@@ -20,5 +20,5 @@ class Post (models.Model):
         blank=True, null=True, verbose_name='Imagem')
     post_pub = models.BooleanField(default=False, verbose_name='Publicado')
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.post_title
