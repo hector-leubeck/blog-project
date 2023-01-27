@@ -1,5 +1,4 @@
 /venv
-/samples
 blog/__pycache__
 /blog/secrets.py
 posts/__pycache__
@@ -7,4 +6,5 @@ comments/__pycache__
 categories/__pycache__
 .env
 *.pyc
-generator.py
+*.json
+posts/views.py
