@@ -10,7 +10,7 @@ class FormComment(ModelForm):
 
         if len(name) < 2:
             self.add_error('com_name', 'Nome inválido!')
-        if len(comment) < 10:
+        if not comment:
             self.add_error('commentary', 'Comentário Inválido!')
 
     class Meta:
