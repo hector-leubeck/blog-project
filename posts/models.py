@@ -11,7 +11,8 @@ class Post (models.Model):
     post_date = models.DateTimeField(
         default=timezone.now, verbose_name='Data de criação')
     post_content = models.TextField(verbose_name='Conteúdo')
-    post_except = models.TextField(verbose_name='Excerto')
+    post_resume = models.TextField(
+        verbose_name='Resumo', default='Digite o resumo da postagem.')
     post_category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, blank=True,
         null=True, verbose_name='Categoria')

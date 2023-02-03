@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 
 <head>
+    {% include "partials/_header.html" %}
     <title>Blog informativo</title>
 
-    {% include "partials/_header.html" %}
 </head>
 
 <body>
@@ -19,7 +19,6 @@
                 {% block 'content' %}
                 {% endblock 'content' %}
 
-                {% include "partials/_pagination.html" %}
 
             </div>
         </div>
