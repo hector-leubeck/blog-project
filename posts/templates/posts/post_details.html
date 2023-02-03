@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% include "partials/_messages.html" %}
 {% block title %}
 
 {% endblock title %}
@@ -57,8 +57,8 @@
                     <div class="col-xl-8">
                         <h2 class="my-3">Deixe um comentário</h2>
 
+                        {% csrf_token %}
                         <form method="POST" action="#envia_comentario">
-                            {% csrf_token %}
                             <table class="table">
                                 {{form}}
                                 <tr>
