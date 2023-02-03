@@ -13,7 +13,7 @@ class Comments(models.Model):
     com_user = models.ForeignKey(User, on_delete=models.DO_NOTHING,
                                  verbose_name='Autor')
     com_date = models.DateTimeField(default=timezone.now, verbose_name='Data')
-    com_pub = models.BooleanField(default=False, verbose_name='Publicado')
+    com_pub = models.BooleanField(default=True, verbose_name='Publicado')
 
     def __str__(self) -> str:
         return self.com_name
