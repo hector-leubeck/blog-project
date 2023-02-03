@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Blog informativo</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Blog informativo || {% block 'title' %}
+            {% endblock 'title'%}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,16 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Python</a>
+                    <a class="nav-link" href="{% url 'post_category' 'tecnologia' %}">Tecnologia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Django</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'post_category' 'filosofia' %}">Filosofia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Tecnologia</a>
+                    <a class="nav-link" href="{% url 'post_category' 'politica' %}">Politica</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Sistemas</a>
+                <a class="nav-link" href="{% url 'post_category' 'outros' %}">Globalização</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 ml-lg-4" action="/busca/">
