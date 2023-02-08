@@ -18,7 +18,7 @@ class PostIndex(ListView):
         qs = super().get_queryset()
         qs.order_by('-id').filter(post_pub=True)
         qs.annotate(
-            comments_pub=Count(Case(When(comments__com_pub=True, then=1))))
+            comment_pub=Count(Case(When(comment__com_pub=True, then=1))))
         return qs
 
 
@@ -56,12 +56,20 @@ class PostDetails(UpdateView):
     form_class = FormComment
     context_object_name = 'post'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comment = Comments.objects.filter(com_pub=True, com_post=post.id)
+        context['comment'] = comment
+
+        return context
+
     def form_valid(self, form):
         post = self.get_object()
-        commentary = Comments(**form.cleaned_data)
-        commentary.com_post = post
+        comment = Comments(**form.cleaned_data)
+        comment.com_post = post
         if self.request.user.is_authenticated:
-            commentary.com_user = self.request.user
-        commentary.save()
+            comment.com_user = self.request.user
+        comment.save()
         messages.success(self.request, "Comentário enviado.")
         return redirect('post_details', pk='post.id')

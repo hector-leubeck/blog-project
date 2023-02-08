@@ -25,7 +25,7 @@ Pagina Inicial
             </h5>
             <p class="card-text">{{post.post_resume}}</p>
             <p class="card-text">
-                <small class="text-muted">{{post.post_date|naturalday|title}}| {{post.comments_pub}}
+                <small class="text-muted">{{post.post_date|naturalday|title}}| {{post.commentary.count}}
                     comentário(s)|
                     {{post.post_category}}</small>
         </div>
